@@ -1,0 +1,48 @@
+import math
+import os
+import random
+import re
+import sys
+
+def twoStacks(x, a, b):
+    c=0
+    l=0
+    for i in a:
+        if i+l<=x:
+            c+=1
+            l+=i
+        else:
+            break  
+    i=c-1
+    j=0
+    m=0
+    while j < len(b):
+        if m+b[j]<=x:  
+            if l+b[j] <= x:
+                l+=b[j]
+                m+=b[j]
+                j+=1
+                c+=1
+            else :
+                l-=a[i]
+                i-=1
+                l+=b[j]
+                m+=b[j]
+                j+=1
+        else:
+            break
+    return c
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    g = int(input().strip())
+
+    for g_itr in range(g):
+        first_multiple_input = input().rstrip().split()
+
+        n = int(first_multiple_input[0])
+
+        m = int(first_multiple_input[1])
+
+        maxSum = int(first_multiple_input[2])
