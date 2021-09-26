@@ -1,0 +1,8 @@
+def cutTheSticks(arr):
+    l=[]
+    while len(arr)>=1:
+        l.append(len(arr))
+        x=min(arr)
+        arr=[i-x for i in arr if i!=x]
+    return l
+
