@@ -1,0 +1,35 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'countSort' function below.
+#
+# The function accepts 2D_STRING_ARRAY arr as parameter.
+#
+
+def countSort(arr):
+    n=len(arr)//2
+    for i in range(n):
+        arr[i][1]="-"
+    m=max(arr)
+    v=int(m[0])
+    a=[[] for i in range(v+1)]
+    for i in arr:
+        a[int(i[0])].append(i[1])
+    u=[y for x in a for y in x]
+    print(*u)
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(input().rstrip().split())
+
+    countSort(arr)
