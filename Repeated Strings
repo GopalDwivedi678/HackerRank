@@ -1,0 +1,10 @@
+
+def repeatedString(s, n):
+    c=s.count('a')
+    x=n//len(s)
+    if n%len(s)==0:
+        c= c*x
+    else:
+        m = n%len(s)
+        c= c*x+s[:m].count('a')
+    return c
