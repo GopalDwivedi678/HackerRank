@@ -1,0 +1,12 @@
+def largestPermutation(k, arr):
+    d={k:v for v, k in enumerate(arr)}
+    i=0
+    l=len(arr)
+    while k > 0 and l > 1:
+        if arr[i]!=l:
+            arr[i],arr[d[l]]=arr[d[l]],arr[i]
+            d[arr[d[l]]],d[l]=d[l],i          
+            k-=1
+        l-=1
+        i+=1
+    return arr
